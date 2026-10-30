@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Noto Sans", sans-serif;
+}
+main {
+    background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    min-height: 100vh;
+    padding: 50px 150px;
+}
+/* start nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(200, 60%, 99%);
+    box-shadow: 0 8px 24px rgba(25, 33, 60, 0.05);
+    border-radius: 15px;
+    padding: 6px 20px;
+    margin-bottom: 40px;
+}
+.theme {
+    background-color: hsl(0, 0%, 93%);
+    padding: 8px;
+    border-radius: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+.sun {
+    display: none;
+}
+/* end nav */
+/* start detail */
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.filter {
+    display: flex;
+    gap: 16px;
+}
+.filter button {
+    font-size: 16px;
+    border: none;
+    background-color: hsl(200, 60%, 99%);
+    box-shadow: 0 8px 24px rgba(25, 33, 60, 0.05);
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.filter button.active {
+    background-color: hsl(3, 77%, 44%);
+    color: hsl(200, 60%, 99%);
+}
+/* end detail */
+/* start card */
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: hsl(200, 60%, 99%);
+    border: 1px solid hsl(200, 20%, 90%);
+    box-shadow: 0 8px 24px rgba(25, 33, 60, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    width: calc((100% - 32px) / 3);
+    min-height: 170px;
+}
+.card-top {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+.image img {
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.name h4 {
+    color: hsl(226, 25%, 17%);
+    font-size: 16px;
+    font-weight: 700;
+}
+.description p {
+    color: hsl(226, 11%, 50%);
+    font-size: 13px;
+    line-height: 1.5;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+.remove-btn button {
+    background-color: transparent;
+    border: 1px solid hsl(220, 14%, 85%);
+    color: hsl(226, 25%, 17%);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: capitalize;
+}
+.remove-btn button:hover {
+    background-color: hsl(3, 77%, 44%);
+    color: hsl(200, 60%, 99%);
+    border-color: hsl(3, 77%, 44%);
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(0, 0%, 82%);
+    transition: 0.3s;
+    border-radius: 20px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: hsl(200, 60%, 99%);
+    transition: 0.3s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: hsl(3, 77%, 44%);
+}
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+/* end card */
+/* start dark mode */
+body.dark main {
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+body.dark nav {
+    background-color: hsl(226, 25%, 17%);
+}
+body.dark .logo img {
+    filter: brightness(0) invert(1);
+}
+body.dark .theme {
+    background-color: hsl(225, 23%, 24%);
+}
+body.dark .moon {
+    display: none;
+}
+body.dark .sun {
+    display: block;
+}
+body.dark .logo-name h2 {
+    color: hsl(200, 60%, 99%);
+}
+body.dark .filter button {
+    background-color: hsl(225, 23%, 24%);
+    color: hsl(200, 60%, 99%);
+    border: 1px solid hsl(226, 11%, 37%);
+}
+body.dark .filter button.active {
+    background-color: hsl(3, 86%, 64%);
+    color: hsl(227, 75%, 14%);
+    border-color: hsl(3, 86%, 64%);
+}
+body.dark .card {
+    background-color: hsl(226, 25%, 17%);
+    border-color: hsl(225, 23%, 24%);
+}
+body.dark .name h4 {
+    color: hsl(200, 60%, 99%);
+}
+body.dark .description p {
+    color: hsl(0, 0%, 78%);
+}
+body.dark .remove-btn button {
+    border-color: hsl(226, 11%, 37%);
+    color: hsl(200, 60%, 99%);
+}
+body.dark .remove-btn button:hover {
+    background-color: hsl(3, 86%, 64%);
+    color: hsl(227, 75%, 14%);
+    border-color: hsl(3, 86%, 64%);
+}
+body.dark .slider {
+    background-color: hsl(226, 11%, 37%);
+}
+body.dark input:checked + .slider {
+    background-color: hsl(3, 86%, 64%);
+}
+/* end dark mode */
+/* start responsive */
+@media (max-width: 992px) {
+    main {
+        padding: 30px 40px;
+    }
+    .card {
+        width: calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 650px) {
+    main {
+        padding: 20px 16px;
+    }
+    nav {
+        margin-bottom: 30px;
+    }
+    .details {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .filter {
+        justify-content: center;
+        gap: 10px;
+    }
+    .card {
+        width: 100%;
+    }
+}
+/* end responsive */

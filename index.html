@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Browser extension</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <nav>
+        <div class="logo">
+          <img src="img/logo.svg" alt="logo img" />
+        </div>
+        <div class="theme">
+          <img src="img/icon-moon.svg" alt="moon img" class="moon" />
+          <img src="img/icon-sun.svg" alt="sun img" class="sun" />
+        </div>
+      </nav>
+      <div class="details">
+        <div class="logo-name">
+          <h2>Extensions List</h2>
+        </div>
+        <div class="filter">
+          <button data-filter="all" class="active">All</button>
+          <button data-filter="active">Active</button>
+          <button data-filter="inactive">Inactive</button>
+        </div>
+      </div>
+      <div class="list">
+      </div>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
