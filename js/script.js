@@ -1,8 +1,10 @@
+import { saveData, loadData } from "./storage.js";
+
 const dark = document.querySelector(".theme");
 const list = document.querySelector(".list");
 const filterBtns = document.querySelectorAll("[data-filter]");
 
-const savedData = JSON.parse(localStorage.getItem("data"));
+const savedData = loadData();
 
 let data = savedData || [];
 let currentFilter = "all";
@@ -61,7 +63,9 @@ function renderExtensions() {
     list.appendChild(card);
     const checkbox = card.querySelector("input");
     checkbox.addEventListener("change", function () {
-      ext.isActive = !ext.isActive;
+      data = data.map((item) =>
+        item.name === ext.name ? { ...item, isActive: !item.isActive } : item,
+      );
       renderExtensions();
     });
     const remove = card.querySelector(".remove");
@@ -70,7 +74,7 @@ function renderExtensions() {
       renderExtensions();
     });
   });
-  localStorage.setItem("data", JSON.stringify(data));
+  saveData(data);
 }
 
 filterBtns.forEach((btn) => {
